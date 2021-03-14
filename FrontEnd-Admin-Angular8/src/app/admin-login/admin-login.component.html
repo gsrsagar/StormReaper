@@ -1,0 +1,26 @@
+
+<p>Hai</p>
+ 
+<form  (ngSubmit)="adminlogin()">
+       
+        <div class="panel panel-primary">
+          <div class="panel-heading" style="text-align:center;"> <h3 class="panel-title"> Admin Login From</h3></div>
+        
+        </div>
+        <div class="form-group">
+       <label for="stid">Admin Login Id</label>
+       <input type="text" id="aid" adminid=" Aid" class="form-control"  [(ngModel)]="admin.aid" />
+       </div>
+       
+         <div class="form-group">
+           <label for="stname">Admin name </label>
+           <input type="text" id="adminname" aname=" adminname" class="form-control" [(ngModel)]="admin.adminname" />
+         </div>
+         <div class="form-group">
+          <label for="age">Password</label>
+          <input type="password" id="adminpassword" name="adminpassword" class="form-control" [(ngModel)]="admin.adminpassword" />
+        </div>
+        <div class="panel-footer">
+                <button class="btn btn-primary" type="submit">Login</button>
+              </div>
+              </form>

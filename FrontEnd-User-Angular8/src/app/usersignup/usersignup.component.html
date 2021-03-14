@@ -1,0 +1,90 @@
+<html>
+        <head>
+            <meta charset="utf-8">
+            <title>HTML Starter</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+         <script src="app.js"></script>
+          </head>
+        <body>
+          
+         <div ng-app = "myApp" class = "container" style="width:550px">
+           <div style="text-align:center;color: aqua">
+         <h3><b>User Registration Form</b></h3>
+           </div>
+         <div ng-controller = "ContactController">
+           <div align="right">
+         <a href="#" ng-click="searchUser()">{{title}}</a>
+           </div>
+           <form #regForm='ngForm' class="well" (ngSubmit)="addUser(regForm)" ng-hide="ifSearchUser">
+         <div class = "form-group">
+         <label for = "Email"> EmailId:  </label>
+         <input type = "email" id = "emailid" class = "form-control" placeholder = "Enter Emailid " ng-model = "user.emailid">
+         </div>
+         <div class = "form-group">
+         <label for = "Name"> Name:  </label>
+         <input type = "text" id = "name" class = "form-control" placeholder = "Enter Name " ng-model = "user.name">
+         </div>
+         <div class = "form-group">
+          <label for = "gender"> Gender: &nbsp; </label>
+          <input type="radio" name="gender" ng-model = "user.gender" value="m"> Male
+        <input type="radio" name="gender" ng-model = "user.gender" value="f"> Female<br>
+        
+          <!-- <input type = "gender" id = "gender" class = "form-control" placeholder = "Enter presentaddress " ng-model = "newcontact.presentaddress"> -->
+          </div>
+        
+         <div class = "form-group">
+         <label for = "presentaddress"> Presentaddress: &nbsp;&nbsp;<textarea style="margin-left:30px;" ng-model = "user.presentaddress" ></textarea> </label>
+         
+         <!-- <input type = "presentaddress" id = "presentaddress" class = "form-control" placeholder = "Enter presentaddress " ng-model = "newcontact.presentaddress"> -->
+         </div>
+         <div class = "form-group">
+          <label for = "permanentaddress"> Permanentaddress: &nbsp;<textarea style="margin-left:10px;" ng-model = "user.permanentaddress" ></textarea> </label>
+        </div>
+        
+         <div class = "form-group">
+         <label for = "mobileno"> MobileNo:  </label>
+         <input type = "text" id = "mobileno" class = "form-control" placeholder = "Enter MobileNo " ng-model = "user.mobileno">
+         </div>
+         <div class = "form-group">
+            <label for = "Password"> Password:  </label>
+            <input type = "password" id = "password" class = "form-control" placeholder = "Enter Password " ng-model = "user.password">
+            </div>
+         <br>
+        
+         <button class="btn btn-primary" value = "Submit">Signup</button>
+         </form>
+         
+           <!-- <div><h4><b>Registered Users</b></h4>
+         <table ng-if="contacts.length" class = "table table-striped table-bordered table-hover">
+           <thead>
+         <tr class = "info">
+         <th>Name</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th ng-if="!ifSearchUser">Action</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr ng-repeat = "contact in contacts">
+         <td>{{ contact.name }}</td>
+         <td>{{ contact.email }}</td>
+         <td>{{ contact.phone }}</td>
+         
+         <td ng-if="!ifSearchUser">
+         <a href="#" ng-click="edit(contact.id)" role = "button" class = "btn btn-info">edit</a> &nbsp;
+         <a href="#" ng-click="delete(contact.id)" role = "button" class = "btn btn-danger">delete</a>
+         </td>
+         </tr>
+         </tbody>
+         </table>
+           <div ng-hide="contacts.length > 0">No Users Found</div>
+           </div> -->
+         </div>
+         </div>
+        </body>
+        </html>
+
+
