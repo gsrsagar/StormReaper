@@ -1,0 +1,33 @@
+<div  style="width:100%;height:100%;background-color: darkgray;background-attachment:100%; "
+*ngIf ="showProfileDetails">
+
+    <fieldset>
+<p> <br/>
+    <span style="color:darkslateblue;font-weight:bolder;background-color: rgb(74, 148, 182); text-align: center"><b></b>
+        <p><span style="color:black;"><b>Logged As</b></span>{{currentuser.emailid}}</p>
+        <p><span style="color:black;"><b>user Username:</b></span>{{currentuser.name}}</p>
+  <p><span style="color:black;"><b>user Mobileno:</b></span>{{currentuser.mobileno}}</p>
+</span></p>
+    
+
+</fieldset>
+
+   
+</div>
+<a  class="topaaa "   style=" margin-top:-30%;margin-left:80%;text-align:center;background-color: aliceblue;color:black;border:1px solid burlywood;padding:5px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" (click)="home()">Logout</a> 
+<div>
+    <button (click)="toggledetails()">
+        {{showDetails? 'Hide' : 'show'}} ProfileDetails
+    </button>
+</div>
+<div style="background-color:burlywood;">
+<div>
+ 
+
+
+
+</div>
+    
+    <a class="topaaa "   style=" margin-top:20%;text-align:center;" routerLink="addpassenger"><b>Lets have a trip</b></a>
+<router-outlet></router-outlet>
+</div>

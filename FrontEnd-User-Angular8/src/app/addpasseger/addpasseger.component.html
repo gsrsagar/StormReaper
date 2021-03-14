@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="app.js"></script>
+
+</head>
+
+<body>
+  <form #addform=ngForm (ngSubmit)="addPassenger()">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 align="center">Ticket Registration</h2>
+        <div class="panel-body"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="route" class="control-label">select Source-destination</label>
+      <select id="route" name="routeid" class="form-group" (onchange)="selectschedule(rout.routeid)" [(ngModel)]="routeid">
+        <!-- <option  selected="" value="-1">Select ship</option> -->
+        <option *ngFor="let rout of routes" [value]="rout.routeid">
+          {{rout.source}}-{{rout.destination}}
+        </option>
+
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ship" class="control-label">select ship</label>
+      <select class="form-group" id="ship" required name="shipid" [(ngModel)]="shipid" class="form-control">
+        <!-- // <option  selected="" value="-1">Select ship</option> -->
+        <option *ngFor="let shi of ships" [value]="shi.shipid">
+          {{shi.shipname}}
+        </option>
+
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Passenger Name</label>
+      <input type="text" id="name" name="pname" class="form-control" [(ngModel)]="passenger.pname" />
+    </div>
+
+
+    <div class="form-group">
+      <label for="age">Passenger Age</label>
+      <input type="text" id="age" name="age" class="form-control" [(ngModel)]="passenger.age" />
+    </div>
+
+    <div class="form-group">
+      <label>Select Gender</label>
+      <select class="form-group" id="gender" name="gender" class="form-control" [(ngModel)]="passenger.gender" >
+        <!-- // <option  selected="" value="-1">Select ship</option> -->
+        <option value="m">Male</option>
+         
+        <option value="f">Female</option>
+
+      </select>
+     
+     
+     
+     
+     
+      <!-- <label for="gender">Male</label>
+      <input type="radio" />
+      <label for="gender1">Female</label>
+      <input type="radio" id="gender1" name="gender" class="form-control"  [value]="f" [(ngModel)]="passenger.gender" /> -->
+    </div>
+
+    <div class="form-group">
+      <label for="contactno">Contact number</label>
+      <input type="number" id="contactno" name="contactno" class="form-control" [(ngModel)]="passenger.contactno" />
+    </div>
+
+
+    <div class="panel-footer">
+      <button class="btn btn-primary" id="addPassenger" type="submit">Register and next</button>
+    </div>
+  </form>
+</body>
+
+</html>

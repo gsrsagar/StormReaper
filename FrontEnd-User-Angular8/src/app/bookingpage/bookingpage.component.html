@@ -1,0 +1,79 @@
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="app.js"></script>
+
+</head>
+<body>
+<p>Storm Reaper India's largest ship reservation system </p>
+<fieldset>
+<div style="background-color: darkseagreen; text-align: center" > <b>User Profile</b>
+  <p><span style="color:black"><b>user Emailid:</b></span><b><span style="color:rgb(11, 7, 255);">{{currentuser1.emailid}}</span></b></p>
+  <p><span style="color:black;"><b>user Username:</b></span><b><span style="color:rgb(11, 7, 255);">{{currentuser1.name}}</span></b></p>
+  <p><span style="color:black;"><b>user Mobileno:</b></span><b><span style="color:rgb(11, 7, 255);">{{currentuser1.mobileno}}</span></b></p>
+<p>{{currentpassenger.pid}}-{{currentpassenger.pname}}</p>
+</div>
+</fieldset>
+<div>
+<form  #addform=ngForm (ngSubmit)="addTicket()" class="container">
+         <div class="form-group">
+           <br/>
+          <label for=" "class="control-label ">Passenger Id</label>             
+  <input type="text" name="passengerid" value={{currentpassenger.pid}}  [(ngModel)]="pid"readonly/> 
+  <br/>
+  <br/>           
+  <div class="form-group">
+      <label for="route" class="control-label" >select Source-destination</label>
+      <select id="route" required #route="ngModel" name="route" class="form-group" (onchange)="selectschedule(rout.routeid)" [(ngModel)]="routeid" >
+     <!-- // <option  selected="" value="-1">Select ship</option> -->
+      <option *ngFor="let rout of routes" [value]="rout.routeid">
+        {{rout.source}} - {{rout.destination}}
+      </option>
+
+      </select>
+      </div>
+ <br/>
+ <br/>
+    
+   <div class="ss"  style="width:30%"> 
+    <label for="sched" class="control-label" >Select Schedule Details</label>
+   <select id="sched" required #sched="ngModel" name="sched" [(ngModel)]="scheduleid" (change)="selectarrival();" >
+   <option [value]="schede.scheduleid" *ngFor="let schede of schedules" > {{schede.arrivaldetails}}  </option>  
+   </select>   
+   </div>
+                  
+   <br/>
+   <br/>
+  <label for="seat_no" class="control-label" >Booking type</label>&nbsp;              
+  <select  [(ngModel)]="seatno"> 
+   <option value="1">AC</option>
+   <option value="2">Non AC </option>
+
+</select> 
+<br/>
+ <br/>
+<label for="age" class="control-label" >Payment Type</label>&nbsp;
+                   <select  [(ngModel)]="paymenttype"> 
+                      <option value="1">Debit Card</option>
+                      <option value="2"> Credit</option>
+                     </select> 
+                   <br/>
+                   <br/>
+                   <label for="age" class="control-label"   >Journey Date</label>&nbsp;
+                   <input type="date" [(ngModel)]="journeydate" name="date"/>
+                   <br/>
+                   <br/>
+                    <label for="Ticket cost" class="control-label">cost of ticket</label>
+                    <input type="number" name="Ticket cost"   [(ngModel)]="ticketcost"  [value]="2500"  readonly/><br/>
+                   <br/>
+                   <button class="btn btn-primary" type="submit" id="addTicket">Book Ticket</button>
+                </div> 
+ </form>
+ </div>
+</body>
+</html>
